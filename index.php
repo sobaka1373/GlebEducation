@@ -1,6 +1,6 @@
 <?php
 // task 1
-
+// Поменяй названия файла!!!
 $x = 6;
 $y = 15;
 $z = 4;
@@ -43,7 +43,7 @@ for ($a; $a <= $b; $a++) {
     $sum += $a;
     if ($a % 2 != 0) echo "$a ,";
 }
-echo $sum;
+echo $sum; // В теории в цикл ты можешь не попасть, а следовательно переменная $sum не будет существовать, а ты ее тут выводишь, поэтому объяви ее до цикла.
 
 /////////////////////////
 // task 7
@@ -52,7 +52,7 @@ $n = mt_rand(5,15);
 for ($j = 0; $j < $n; $j++) {
     $arr[$j] = mt_rand(0,100);
 }
-$countarr = count($arr);
+$countarr = count($arr); // Используй camel case
 $max = 0;
 $min = 1000000;
 $sum = 0;
@@ -83,9 +83,9 @@ $arrayrand = array(array(mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand
     array(mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10)),
     array(mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10)),
     array(mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10)));
-for ($i = 0; $i < 5; $i++){
+for ($i = 0; $i < 5; $i++){ // пробел забыл
     if ($arrayrand[$i][$i] < 0) {
-        $$arrayrand[$i][$i] = 0;
+        $$arrayrand[$i][$i] = 0; // Тут явно ошибка
     } elseif ($arrayrand[$i][$i] > 0) {
         $arrayrand[$i][$i] = 1;
     }
