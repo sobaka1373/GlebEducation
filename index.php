@@ -20,7 +20,7 @@ echo $x, "<br />";
 $a = mt_rand(0,100);
 $b = mt_rand(0,100);
 $c = mt_rand(0,100);
-$sarf = ($a + $b + $c) / 3;
+$sarf = ($a + $b + $c) / 3; // Не читается переменная
 echo " task 2 <br /> $sarf <br />";
 
 /////////////////////////
@@ -42,7 +42,7 @@ $B = mt_rand(11,20);
 echo "$B B <br />";
 for ($A; $A <= $B; $A++) {
     $c = $A;
-    $sum += $c;
+    $sum += $c; // Undefined variable
     if ($c % 2 != 0) echo "$c ,";
 }
 echo "<br /> $sum сумма <br />";
@@ -55,11 +55,11 @@ for ($j = 0; $j < $N; $j++) {
     $arr[$j] = mt_rand(0,100);
 }
 echo "task 7 <br /> массив <br />";
-print_r($arr);
+print_r($arr); // Variable '$arr' is probably undefined
 $car = count($arr);
 $max = 0;
 $min = 1000000;
-$summ = 0;
+$summ = 0; // Не корректное название
 for ($i = 0; $i < $car; $i++) {
     $summ += $arr[$i];
     if ($arr[$i] > $max) {
@@ -87,7 +87,7 @@ $arrt = array(array(mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,
     array(mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10)),
     array(mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10)),
     array(mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10)),
-    array(mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10)));
+    array(mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10),mt_rand(-10,10))); // Исправь название
 echo "task 8 <br /> massiv do<br /> ";
 print_r($arrt);
 for ($i = 0; $i < 5; $i++){
@@ -102,3 +102,7 @@ print_r($arrt[1][1]);
 print_r($arrt[2][2]);
 print_r($arrt[3][3]);
 print_r($arrt[4][4]);
+
+// Fix PSR if, for.
+// Fix output lang, example: massiv posle => array after.
+// Старайся не использовать теги HTML в echo.
