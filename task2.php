@@ -91,22 +91,23 @@ print_r($array);
 // task 6
 
 $array = [4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3];
-$arrayBig = [];
+$arrayMostFrequent = [];
+$arrayCount = [];
 for ($i = 0; $i < count($array); $i++) {
     for ($j = 0; $j < count($array); $j++) {
         if ($array[$j] === $array[$i]) {
             $arrayCount[] += $array[$j];
         }
     }
-    if (count($arrayBig) < count($arrayCount)) {
-        unset ($arrayBig);
-        $arrayBig = $arrayCount;
+    if (count($arrayMostFrequent) < count($arrayCount)) {
+        unset ($arrayMostFrequent);
+        $arrayMostFrequent = $arrayCount;
         unset ($arrayCount);
     } else {
         unset ($arrayCount);
     }
 }
-print_r($arrayBig);
+print_r($arrayMostFrequent);
 
 ////////////////////////////////////
 // task 7
@@ -116,12 +117,12 @@ $item = 9;
 $low = 0;
 $high = count($array) - 1;
 $halfIndex = (int) (($low + $high) / 2);
-While ($array[$halfIndex] !== $item) {
+while ($array[$halfIndex] !== $item) {
     if ($array[$halfIndex] < $item) {
-        $low = $halfIndex +1;
+        $low = $halfIndex + 1;
     } else {
         $high = $halfIndex - 1;
     }
     $halfIndex = (int) (($low + $high) / 2);
 }
-echo $halfIndex;
+print_r($halfIndex);
