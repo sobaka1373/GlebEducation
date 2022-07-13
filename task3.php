@@ -1,64 +1,75 @@
 <?php
 // Function
 // task 1
-
-function lastDigit ($a)
+function lastDigit (int $number)
 {
-    $array = str_split($a);
-    if ($array[count($array) - 1] === 0) {
+    $number = (string) $number;
+    $array = str_split($number);
+    $lastDigit = (int) $array[count($array) - 1];
+    if ($lastDigit === 0) {
         return "zero";
-    } elseif ($array[count($array) - 1] == 1) {
+    } elseif ($lastDigit === 1) {
         return "one";
-    } elseif ($array[count($array) - 1] == 2) {
+    } elseif ($lastDigit === 2) {
         return "two";
-    } elseif ($array[count($array) - 1] == 3) {
+    } elseif ($lastDigit === 3) {
         return "three";
-    } elseif ($array[count($array) - 1] == 4) {
+    } elseif ($lastDigit === 4) {
         return "four";
-    } elseif ($array[count($array) - 1] == 5) {
+    } elseif ($lastDigit === 5) {
         return "five";
-    } elseif ($array[count($array) - 1] == 6) {
+    } elseif ($lastDigit === 6) {
         return "six";
-    } elseif ($array[count($array) - 1] == 7) {
+    } elseif ($lastDigit === 7) {
         return "seven";
-    } elseif ($array[count($array) - 1] == 8) {
+    } elseif ($lastDigit === 8) {
         return "eight";
-    } elseif ($array[count($array) - 1] == 9) {
+    } elseif ($lastDigit === 9) {
         return "nine";
     } else {
         return "type integer";
     }
 }
-$a = 12345;
-echo lastDigit ($a);
+$number = 12347;
+echo lastDigit ($number);
 
 /////////////////////////////
 // task 2
 
-function reverseDigit ($a)
+function reverseDigit (int $number) : string
 {
-    return implode(array_reverse(str_split($a)));
+    $number = (string) $number;
+    return implode(array_reverse(str_split($number)));
 }
-$a = 12345;
-print_r(reverseDigit ($a));
+$number = 12375;
+print_r(reverseDigit ($number));
 
 /////////////////////////////
 // task 3
 
-function findWord ($text, $word)
-{
-    static $count = 0;
-    static $position = 0;
-    if (stripos($text, $word, $position)) {
-        $count++;
-        $position = stripos($text, $word, $position) + 1;
-        findWord($text, $word);
-    }
-    return $count;
-}
-$text = "mom dad mom Dad mom dad";
-$word = "dad";
-echo findWord ($text, $word);
+//function findWord ($text, $word, $flag)
+//{
+//    static $count = 0;
+//    static $position = 0;
+//    if ($flag === true) {
+//        if (stripos($text, $word, $position) !== false) {
+//            $count++;
+//            $position = stripos($text, $word, $position) + 1;
+//            findWord($text, $word);
+//        }
+//    } else {
+//
+//    }
+//
+//
+//    return $count;
+//}
+//$text = "mom dad Mommy Dad mom dad";
+//$word = "mom";
+//echo findWord ($text, $word);
+
+// task 4
+//ispol'zovat stroky'
 
 //////////////////////////////
 // task 5

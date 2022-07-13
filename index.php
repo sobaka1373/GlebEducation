@@ -1,25 +1,16 @@
 <?php
 
-function checkNeighbor($array, $key)
+function checkNeighbor($array, $key) // dobavit' spaceship, strogaya tipizaciya, fozvrat
+// chisla i potom otdel'no yje vivod 4erez function
 {
-    if (isset($array[$key - 1])) {
-        if (isset($array[$key + 1])) {
-            if ($array[$key] > $array[$key - 1]) {
-                if ($array[$key] > $array[$key + 1]) {
-                    $counter = 1;
-                } else {
-                    $counter = 0;
-                }
-            } else {
-                $counter = 0;
-            }
+    if (isset($array[$key - 1]) && isset($array[$key + 1])) {
+        if (($array[$key] > $array[$key - 1]) && ($array[$key] > $array[$key + 1])) {
+            $counter = 1;
         } else {
-            $counter = -1;
-
+            $counter = 0;
         }
     } else {
         $counter = -1;
-
     }
     if ($counter > 0) {
         return "1 Element is  bigger then it's neighbours";
@@ -29,6 +20,13 @@ function checkNeighbor($array, $key)
         return "0 Element is not bigger then it's neighbours";
     }
 }
+$array = [5, 4, 5, 4, 2];
+$elementKey = 2;
+echo checkNeighbor($array, $elementKey);
+
+///////////////////////////////////
+// task 7
+
 
 function indexNeighbor($array)
 {
@@ -40,7 +38,4 @@ function indexNeighbor($array)
 }
 
 $array = [1, 2, 5, 2, 1];
-$index = 3;
 echo indexNeighbor($array);
-
-
