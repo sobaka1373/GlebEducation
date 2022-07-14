@@ -1,7 +1,7 @@
 <?php
 // Function
 // task 1
-function lastDigit (int $number)
+function lastDigit (int $number) : string
 {
     $number = (string) $number;
     $array = str_split($number);
@@ -47,34 +47,37 @@ print_r(reverseDigit ($number));
 /////////////////////////////
 // task 3
 
-//function findWord ($text, $word, $flag)
-//{
-//    static $count = 0;
-//    static $position = 0;
-//    if ($flag === true) {
-//        if (stripos($text, $word, $position) !== false) {
-//            $count++;
-//            $position = stripos($text, $word, $position) + 1;
-//            findWord($text, $word);
-//        }
-//    } else {
-//
-//    }
-//
-//
-//    return $count;
-//}
-//$text = "mom dad Mommy Dad mom dad";
-//$word = "mom";
-//echo findWord ($text, $word);
+function findWord ($text, $word, $flag)
+{
+    $text = explode(" ", $text);
+    $counter = 0;
+    if ($flag === true) {
+        foreach ($text as $key => $value) {
+            if (strtolower($value) == strtolower($word)) {
+                $counter++;
+            }
+        }
+        return $counter;
+    } else {
+        foreach ($text as $key => $value) {
+            if ($value == $word) {
+                $counter++;
+            }
+        }
+        return $counter;
+    }
+}
+$text = "Mom dad mom dad mommy daddy mOm Dad";
+$word = "mom";
+echo findWord($text, $word, true);
 
+/////////////////////////////
 // task 4
-//ispol'zovat stroky'
-
+// Сделаю регулярным выражением позже
 //////////////////////////////
 // task 5
 
-function countNumbers ($array, $number)
+function countNumbers (array $array, int $number) : int
 {
     $counter = 0;
     foreach ($array as $value) {
@@ -91,51 +94,55 @@ echo countNumbers ($array, $number);
 /////////////////////////////////////
 // task 6
 
-function checkNeighbor($array, $key)
+function checkNeighbor(array $array, int $key) : int
 {
-    if (isset($array[$key - 1])) {
-        if (isset($array[$key + 1])) {
-            if ($array[$key] > $array[$key - 1]) {
-                if ($array[$key] > $array[$key + 1]) {
+    if ((isset($array[$key - 1])) && (isset($array[$key + 1]))){
+            if (($array[$key] > $array[$key - 1]) && ($array[$key] > $array[$key + 1])) {
                     $counter = 1;
+                    return $counter;
                 } else {
                     $counter = 0;
+                    return $counter;
                 }
             } else {
-                $counter = 0;
-            }
-        } else {
-            $counter = -1;
-
-        }
-    } else {
         $counter = -1;
+        return $counter;
 
-    }
-    if ($counter > 0) {
-        return "1 Element is  bigger then it's neighbours";
-    } elseif ($counter < 0) {
-        return "-1 This is the first/last element and it has only one neighbour";
-    } else {
-        return "0 Element is not bigger then it's neighbours";
     }
 }
 $array = [5, 4, 5, 4, 2];
 $elementKey = 2;
-echo checkNeighbor($array, $elementKey);
+switch (checkNeighbor($array, $elementKey)) {
+    case 1:
+        echo "Element is  bigger then it's neighbours";
+        break;
+    case 0:
+        echo "Element is not bigger then it's neighbours";
+        break;
+    case -1:
+        echo "This is the first/last element and it has only one neighbour";
+        break;
+}
 
 ///////////////////////////////////
 // task 7
 
-function indexNeighbor($array)
+function indexNeighbor(array $array) : int
 {
+    $item = 0;
     for ($i = 0; $i < count($array); $i++) {
         if (checkNeighbor($array, $i) > 0) {
-            return $i;
+            $item++;
+            break;
         }
+    }
+    if ($item > 0){
+        return $i;
+    } else {
+        return -1;
     }
 }
 
-$array = [1, 2, 5, 2, 1];
+$array = [30, 20, 10, 8, 9];
 echo indexNeighbor($array);
 
