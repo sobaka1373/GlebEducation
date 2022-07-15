@@ -73,7 +73,15 @@ echo findWord($text, $word, true);
 
 /////////////////////////////
 // task 4
-// Сделаю регулярным выражением позже
+
+function findDiv($text)
+{
+    preg_match_all("/<div>/ui", $text, $allMatches);
+    return count($allMatches[0]);
+}
+$text = "<div> mom </div> dad mom <div> dad mommy </div>";
+echo findDiv($text);
+
 //////////////////////////////
 // task 5
 
