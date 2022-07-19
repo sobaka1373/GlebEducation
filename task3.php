@@ -47,7 +47,7 @@ print_r(reverseDigit ($number));
 /////////////////////////////
 // task 3
 
-function findWord ($text, $word, $flag)
+function findWord (string $text, string $word, bool $flag)
 {
     $text = explode(" ", $text);
     $counter = 0;
@@ -74,7 +74,7 @@ echo findWord($text, $word, true);
 /////////////////////////////
 // task 4
 
-function findDiv($text)
+function findDiv(string $text)
 {
     preg_match_all("/<div>/ui", $text, $allMatches);
     return count($allMatches[0]);
@@ -104,7 +104,7 @@ echo countNumbers ($array, $number);
 
 function checkNeighbor(array $array, int $key) : int
 {
-    if ((isset($array[$key - 1])) && (isset($array[$key + 1]))){
+    if ((isset($array[$key - 1])) && (isset($array[$key + 1]))) {
             if (($array[$key] > $array[$key - 1]) && ($array[$key] > $array[$key + 1])) {
                     $counter = 1;
                     return $counter;
@@ -144,7 +144,7 @@ function indexNeighbor(array $array) : int
             break;
         }
     }
-    if ($item > 0){
+    if ($item > 0) {
         return $i;
     } else {
         return -1;
