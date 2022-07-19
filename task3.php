@@ -47,7 +47,7 @@ print_r(reverseDigit ($number));
 /////////////////////////////
 // task 3
 
-function findWord (string $text, string $word, bool $flag)
+function findWord (string $text, string $word, bool $flag) : int
 {
     $text = explode(" ", $text);
     $counter = 0;
@@ -74,7 +74,7 @@ echo findWord($text, $word, true);
 /////////////////////////////
 // task 4
 
-function findDiv(string $text)
+function findDiv(string $text) : int
 {
     preg_match_all("/<div>/ui", $text, $allMatches);
     return count($allMatches[0]);
