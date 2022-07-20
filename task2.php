@@ -126,3 +126,4 @@ while ($array[$halfIndex] !== $item) {
     $halfIndex = (int) (($low + $high) / 2);
 }
 print_r($halfIndex);
+
