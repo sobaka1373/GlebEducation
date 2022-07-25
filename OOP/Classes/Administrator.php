@@ -1,13 +1,11 @@
 <?php
-
 namespace OOP;
 
 require_once "Classes/BarWorkers.php";
-
-class Barmen extends BarWorkers
+class Administrator extends BarWorkers
 {
     public function doJob()
     {
-        echo "Вот ваше пиво";
+        echo "Живо за работу!";
     }
 }

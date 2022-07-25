@@ -1,6 +1,7 @@
 <?php
- namespace OOP;
+namespace OOP;
 
- $maddison = new Barmen("Ilya", 35, 1000, "male");
-$a = 12;
-echo $a;
+require_once "Classes/Barmen.php";
+
+$maddison = new Barmen("Ilya", 35, 1000, "male");
+$maddison->doJob();
